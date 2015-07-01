@@ -54,3 +54,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/ollie/
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Credits
+
+Thanks [Ice Nine](https://github.com/dkubb/ice_nine) and [Rails](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/object/duplicable.rb) for inspiration.
