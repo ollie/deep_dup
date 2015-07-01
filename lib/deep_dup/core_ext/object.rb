@@ -22,4 +22,4 @@ module DeepDup
 end
 
 # Add +Object#deep_dup+.
-Object.include(DeepDup::CoreExt::Object)
+Object.send(:include, DeepDup::CoreExt::Object)
