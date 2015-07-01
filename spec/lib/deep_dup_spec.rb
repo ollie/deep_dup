@@ -203,4 +203,56 @@ describe 'DeepDup.deep_dup' do
       expect(original_thing.object_id).to_not eq(dupped_thing.object_id)
     end
   end
+
+  context 'Recursive array' do
+    let(:original) do
+      object = [1, 2]
+      object << object
+      object
+    end
+
+    let(:dupped) { DeepDup.deep_dup(original) }
+
+    it 'has different object_id' do
+      expect(original.object_id).to_not eq(dupped.object_id)
+    end
+
+    it "original's subarray object_id match" do
+      expect(original.last.object_id).to eq(original.object_id)
+    end
+
+    it "dupped's subarray object_id match" do
+      expect(dupped.last.object_id).to eq(dupped.object_id)
+    end
+
+    it "original's subarray object_id differs from dupped's" do
+      expect(original.last.object_id).to_not eq(dupped.last.object_id)
+    end
+  end
+
+  context 'Recursive hash' do
+    let(:original) do
+      object = { a: 1, b: 2 }
+      object[:c] = object
+      object
+    end
+
+    let(:dupped) { DeepDup.deep_dup(original) }
+
+    it 'has different object_id' do
+      expect(original.object_id).to_not eq(dupped.object_id)
+    end
+
+    it "original's subarray object_id match" do
+      expect(original.fetch(:c).object_id).to eq(original.object_id)
+    end
+
+    it "dupped's subarray object_id match" do
+      expect(dupped.fetch(:c).object_id).to eq(dupped.object_id)
+    end
+
+    it "original's subarray object_id differs from dupped's" do
+      expect(original.fetch(:c).object_id).to_not eq(dupped.fetch(:c).object_id)
+    end
+  end
 end
