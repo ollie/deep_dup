@@ -13,6 +13,10 @@ module DeepDup
       #   dupped = ['a', :a, 1, { bacon: { chunky: 'yeah' } }].deep_dup
       #   dupped = SomeClass.new.deep_dup
       #
+      #   array = [1, 2]
+      #   array << array
+      #   dupped = array.deep_dup
+      #
       # @return [Object] Dupped object if possible.
       def deep_dup
         DeepDup.deep_dup(self)

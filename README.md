@@ -13,6 +13,10 @@ dupped = DeepDup.deep_dup('chunky')
 dupped = DeepDup.deep_dup(['chunky', [:bacon, { hi: 5 }]])
 dupped = DeepDup.deep_dup(['a', :a, 1, { bacon: { chunky: 'yeah' } }])
 dupped = DeepDup.deep_dup(SomeClass.new)
+
+array = [1, 2]
+array << array
+dupped = DeepDup.deep_dup(array)
 ```
 
 With monkey patching
@@ -24,6 +28,10 @@ dupped = 'chunky'.deep_dup
 dupped = ['chunky', [:bacon, { hi: 5 }]].deep_dup
 dupped = ['a', :a, 1, { bacon: { chunky: 'yeah' } }].deep_dup
 dupped = SomeClass.new.deep_dup
+
+array = [1, 2]
+array << array
+dupped = array.deep_dup
 ```
 ## Installation
 

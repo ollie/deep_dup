@@ -10,6 +10,10 @@ require 'deep_dup/version'
 #   dupped = DeepDup.deep_dup(['a', :a, 1, { bacon: { chunky: 'yeah' } }])
 #   dupped = DeepDup.deep_dup(SomeClass.new)
 #
+#   array = [1, 2]
+#   array << array
+#   dupped = DeepDup.deep_dup(array)
+#
 # @example With monkey patching
 #   require 'deep_dup/core_ext/object'
 #
@@ -17,6 +21,10 @@ require 'deep_dup/version'
 #   dupped = ['chunky', [:bacon, { hi: 5 }]].deep_dup
 #   dupped = ['a', :a, 1, { bacon: { chunky: 'yeah' } }].deep_dup
 #   dupped = SomeClass.new.deep_dup
+#
+#   array = [1, 2]
+#   array << array
+#   dupped = array.deep_dup
 module DeepDup
   # Deep duplicate any object.
   #
@@ -25,6 +33,10 @@ module DeepDup
   #   dupped = DeepDup.deep_dup(['chunky', [:bacon, { hi: 5 }]])
   #   dupped = DeepDup.deep_dup(['a', :a, 1, { bacon: { chunky: 'yeah' } }])
   #   dupped = DeepDup.deep_dup(SomeClass.new)
+  #
+  #   array = [1, 2]
+  #   array << array
+  #   dupped = DeepDup.deep_dup(array)
   #
   # @param object [Object] Pretty much anything.
   # @param cache  [Hash]   Cache +object_id+s to prevent stack overflow on
