@@ -2,7 +2,7 @@ require 'deep_dup/version'
 
 # Deep duplicate any object. Some objects cannot be +dup+ped like +nil+,
 # +false+, +true+, numbers, symbols and method objects. In those cases
-# return themselvese.
+# return themselves.
 #
 # @example No monkey patching
 #   dupped = DeepDup.deep_dup('chunky')

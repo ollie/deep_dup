@@ -2,7 +2,7 @@
 
 Deep duplicate Ruby objects. Some objects cannot be `dup`ped like `nil`,
 `false`, `true`, numbers, symbols and method objects. In those cases
-return themselvese.
+return themselves.
 
 ## Usage
 
