@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   # Test
   spec.add_development_dependency 'rspec',     '~> 3.4'
-  spec.add_development_dependency 'simplecov', '~> 0.10'
+  spec.add_development_dependency 'simplecov', '~> 0.11'
 
   # Code style, debugging, docs
   spec.add_development_dependency 'rubocop', '~> 0.35'
